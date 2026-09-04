@@ -68,7 +68,7 @@ npm run dev
 | Felipe Bernal | Base de datos |
 | Andrés Camilo Flores Bustamante | Backend + coordinación |
 | Lebron De La Rosa Castro | Backend |
-| Javier Vargas | Frontend |
+| Jaber Vargas | Frontend |
 | Brian Federosa | Frontend |
 
 ## Flujo de trabajo

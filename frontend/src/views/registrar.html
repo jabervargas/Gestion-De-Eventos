@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear cuenta · SGDE</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+</head>
+
+<body>
+    <div class="register-shell">
+        <div class="register-card">
+            <div class="register-card__header">
+                <p class="auth-brand__mark">SGDE</p>
+                <h1 style="color:#fff; font-size:24px; margin-top:4px;">Crea tu cuenta</h1>
+                <p style="color:#b9c6d8; font-size:14px; margin-top:4px;">
+                    Regístrate para solicitar cotizaciones y gestionar tus eventos.
+                </p>
+            </div>
+
+            <div class="register-card__body">
+                <!-- Selector tipo de cuenta -->
+                <div class="tabs" role="tablist" aria-label="Tipo de cuenta">
+                    <button type="button" class="tab is-active" data-account-type="natural" role="tab"
+                        aria-selected="true">
+                        Persona Natural
+                    </button>
+                    <button type="button" class="tab" data-account-type="empresa" role="tab" aria-selected="false">
+                        Empresa / Institución
+                    </button>
+                </div>
+
+                <div id="formAlertSuccess" class="alert alert--success" style="margin-top:24px;" role="status"></div>
+                <div id="formAlertError" class="alert alert--error" style="margin-top:12px;" role="alert"></div>
+
+                <form id="registerForm" novalidate>
+                    <div class="form-grid">
+                        <!-- Campos: Persona Natural -->
+                        <fieldset class="account-fieldset is-active" data-account-fieldset="natural">
+                            <div class="field form-grid__full" id="fieldFullName">
+                                <label class="field__label" for="fullName">Nombre completo <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="fullName" name="fullName"
+                                        placeholder="Ana María Restrepo" />
+                                </div>
+                                <p class="field__error" data-error-for="fullName"></p>
+                            </div>
+
+                            <div class="field" id="fieldDocumentId">
+                                <label class="field__label" for="documentId">Cédula / Documento <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="documentId" name="documentId"
+                                        placeholder="1234567890" />
+                                </div>
+                                <p class="field__error" data-error-for="documentId"></p>
+                            </div>
+
+                            <div class="field" id="fieldPhoneNatural">
+                                <label class="field__label" for="phoneNatural">Teléfono <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="tel" id="phoneNatural" name="phoneNatural"
+                                        placeholder="+57 300 000 0000" />
+                                </div>
+                                <p class="field__error" data-error-for="phoneNatural"></p>
+                            </div>
+
+                            <div class="field" id="fieldEmailNatural">
+                                <label class="field__label" for="emailNatural">Correo electrónico <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="email" id="emailNatural" name="emailNatural"
+                                        placeholder="ana@correo.com" />
+                                </div>
+                                <p class="field__error" data-error-for="emailNatural"></p>
+                            </div>
+
+                            <div class="field" id="fieldCityNatural">
+                                <label class="field__label" for="cityNatural">Ciudad <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="cityNatural" name="cityNatural"
+                                        placeholder="Cartagena" />
+                                </div>
+                                <p class="field__error" data-error-for="cityNatural"></p>
+                            </div>
+                        </fieldset>
+
+                        <!-- Campos: Empresa / Institución -->
+                        <fieldset class="account-fieldset" data-account-fieldset="empresa">
+                            <div class="field form-grid__full" id="fieldCompanyName">
+                                <label class="field__label" for="companyName">Razón social <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="companyName" name="companyName"
+                                        placeholder="Eventos del Caribe S.A.S." />
+                                </div>
+                                <p class="field__error" data-error-for="companyName"></p>
+                            </div>
+
+                            <div class="field" id="fieldTaxId">
+                                <label class="field__label" for="taxId">NIT <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="taxId" name="taxId"
+                                        placeholder="900123456-7" />
+                                </div>
+                                <p class="field__error" data-error-for="taxId"></p>
+                            </div>
+
+                            <div class="field" id="fieldContactName">
+                                <label class="field__label" for="contactName">Nombre del contacto <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="contactName" name="contactName"
+                                        placeholder="Carlos Pérez" />
+                                </div>
+                                <p class="field__error" data-error-for="contactName"></p>
+                            </div>
+
+                            <div class="field" id="fieldPhoneEmpresa">
+                                <label class="field__label" for="phoneEmpresa">Teléfono <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="tel" id="phoneEmpresa" name="phoneEmpresa"
+                                        placeholder="+57 300 000 0000" />
+                                </div>
+                                <p class="field__error" data-error-for="phoneEmpresa"></p>
+                            </div>
+
+                            <div class="field" id="fieldEmailEmpresa">
+                                <label class="field__label" for="emailEmpresa">Correo corporativo <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="email" id="emailEmpresa" name="emailEmpresa"
+                                        placeholder="contacto@empresa.com" />
+                                </div>
+                                <p class="field__error" data-error-for="emailEmpresa"></p>
+                            </div>
+
+                            <div class="field" id="fieldCityEmpresa">
+                                <label class="field__label" for="cityEmpresa">Ciudad <span
+                                        class="field__required">*</span></label>
+                                <div class="field__control">
+                                    <input class="field__input" type="text" id="cityEmpresa" name="cityEmpresa"
+                                        placeholder="Cartagena" />
+                                </div>
+                                <p class="field__error" data-error-for="cityEmpresa"></p>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-grid" style="margin-top: 20px;">
+                        <div class="field" id="fieldPassword">
+                            <label class="field__label" for="password">Contraseña <span
+                                    class="field__required">*</span></label>
+                            <div class="field__control">
+                                <input class="field__input" type="password" id="password" name="password"
+                                    autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+                            </div>
+                            <p class="field__error" data-error-for="password"></p>
+                        </div>
+
+                        <div class="field" id="fieldConfirmPassword">
+                            <label class="field__label" for="confirmPassword">Confirmar contraseña <span
+                                    class="field__required">*</span></label>
+                            <div class="field__control">
+                                <input class="field__input" type="password" id="confirmPassword" name="confirmPassword"
+                                    autocomplete="new-password" placeholder="Repite tu contraseña" />
+                            </div>
+                            <p class="field__error" data-error-for="confirmPassword"></p>
+                        </div>
+                    </div>
+
+                    <div class="register-actions">
+                        <button type="submit" class="btn btn--primary btn--block" id="registerSubmit">
+                            <span class="btn__spinner" aria-hidden="true"></span>
+                            <span class="btn__label">Crear cuenta</span>
+                        </button>
+                        <p style="font-size:14px; color:var(--text-muted);">
+                            ¿Ya tienes cuenta?
+                            <a href="login.html" class="link" style="color:var(--navy-deep); font-weight:500;">Inicia
+                                sesión</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const fieldsets = document.querySelectorAll("[data-account-fieldset]");
+        let accountType = "natural";
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                accountType = tab.dataset.accountType;
+                tabs.forEach((t) => {
+                    t.classList.toggle("is-active", t === tab);
+                    t.setAttribute("aria-selected", t === tab ? "true" : "false");
+                });
+                fieldsets.forEach((fs) => {
+                    fs.classList.toggle("is-active", fs.dataset.accountFieldset === accountType);
+                });
+                clearAllErrors();
+            });
+        });
+
+        const fieldIdsByType = {
+            natural: ["fieldFullName", "fieldDocumentId", "fieldPhoneNatural", "fieldEmailNatural", "fieldCityNatural"],
+            empresa: ["fieldCompanyName", "fieldTaxId", "fieldContactName", "fieldPhoneEmpresa", "fieldEmailEmpresa", "fieldCityEmpresa"],
+        };
+
+        function setFieldError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorEl = field.querySelector("[data-error-for]");
+            if (message) {
+                field.classList.add("has-error");
+                errorEl.textContent = message;
+            } else {
+                field.classList.remove("has-error");
+                errorEl.textContent = "";
+            }
+        }
+
+        function clearAllErrors() {
+            document.querySelectorAll(".field").forEach((f) => f.classList.remove("has-error"));
+            document.querySelectorAll("[data-error-for]").forEach((e) => (e.textContent = ""));
+        }
+
+        function hideAlerts() {
+            document.getElementById("formAlertSuccess").classList.remove("is-visible");
+            document.getElementById("formAlertError").classList.remove("is-visible");
+        }
+
+        function val(id) {
+            return document.getElementById(id).value.trim();
+        }
+
+        function validate() {
+            let valid = true;
+
+            if (accountType === "natural") {
+                if (!val("fullName")) { setFieldError("fieldFullName", "Ingresa el nombre completo."); valid = false; }
+                if (!val("documentId")) { setFieldError("fieldDocumentId", "Ingresa el número de documento."); valid = false; }
+                if (!val("emailNatural")) { setFieldError("fieldEmailNatural", "Ingresa un correo electrónico."); valid = false; }
+                if (!val("phoneNatural")) { setFieldError("fieldPhoneNatural", "Ingresa un número de teléfono."); valid = false; }
+                if (!val("cityNatural")) { setFieldError("fieldCityNatural", "Ingresa la ciudad."); valid = false; }
+            } else {
+                if (!val("companyName")) { setFieldError("fieldCompanyName", "Ingresa la razón social."); valid = false; }
+                if (!val("taxId")) { setFieldError("fieldTaxId", "Ingresa el NIT."); valid = false; }
+                if (!val("contactName")) { setFieldError("fieldContactName", "Ingresa el nombre del contacto."); valid = false; }
+                if (!val("emailEmpresa")) { setFieldError("fieldEmailEmpresa", "Ingresa el correo corporativo."); valid = false; }
+                if (!val("phoneEmpresa")) { setFieldError("fieldPhoneEmpresa", "Ingresa un número de teléfono."); valid = false; }
+                if (!val("cityEmpresa")) { setFieldError("fieldCityEmpresa", "Ingresa la ciudad."); valid = false; }
+            }
+
+            const password = val("password");
+            const confirmPassword = val("confirmPassword");
+
+            if (!password) {
+                setFieldError("fieldPassword", "Crea una contraseña.");
+                valid = false;
+            } else if (password.length < 6) {
+                setFieldError("fieldPassword", "Debe tener al menos 6 caracteres.");
+                valid = false;
+            }
+
+            if (!confirmPassword) {
+                setFieldError("fieldConfirmPassword", "Confirma la contraseña.");
+                valid = false;
+            } else if (password !== confirmPassword) {
+                setFieldError("fieldConfirmPassword", "Las contraseñas no coinciden.");
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        function collectPayload() {
+            if (accountType === "natural") {
+                return {
+                    accountType,
+                    fullName: val("fullName"),
+                    documentId: val("documentId"),
+                    phone: val("phoneNatural"),
+                    email: val("emailNatural"),
+                    city: val("cityNatural"),
+                };
+            }
+            return {
+                accountType,
+                companyName: val("companyName"),
+                taxId: val("taxId"),
+                contactName: val("contactName"),
+                phone: val("phoneEmpresa"),
+                email: val("emailEmpresa"),
+                city: val("cityEmpresa"),
+            };
+        }
+
+        const form = document.getElementById("registerForm");
+        const submitBtn = document.getElementById("registerSubmit");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            hideAlerts();
+            if (!validate()) return;
+
+            submitBtn.classList.add("is-loading");
+            submitBtn.disabled = true;
+
+            try {
+                const payload = collectPayload();
+                payload.password = val("password");
+                await registerRequest(payload);
+
+                const successAlert = document.getElementById("formAlertSuccess");
+                successAlert.textContent = "Cuenta creada correctamente. Ya puedes iniciar sesión.";
+                successAlert.classList.add("is-visible");
+
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 1200);
+            } catch (err) {
+                const errorAlert = document.getElementById("formAlertError");
+                errorAlert.textContent = "No fue posible crear la cuenta. Intenta de nuevo.";
+                errorAlert.classList.add("is-visible");
+            } finally {
+                submitBtn.classList.remove("is-loading");
+                submitBtn.disabled = false;
+            }
+        });
+
+        form.querySelectorAll("input").forEach((input) => {
+            input.addEventListener("input", () => {
+                const field = input.closest(".field");
+                if (field) field.classList.remove("has-error");
+                const errorEl = field ? field.querySelector("[data-error-for]") : null;
+                if (errorEl) errorEl.textContent = "";
+                hideAlerts();
+            });
+        });
+    </script>
+</body>
+
+</html>

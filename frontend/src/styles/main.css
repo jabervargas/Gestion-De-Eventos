@@ -5,42 +5,42 @@
 
 /* ---- Fuentes locales (carpeta /fonts, sin dependencias externas) ---- */
 @font-face {
-    font-family: "Inter";
-    src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+    font-family: "Jost";
+    src: url("../fonts/Jost-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("../fonts/inter-latin-500-normal.woff2") format("woff2");
+    font-family: "Jost";
+    src: url("../fonts/Jost-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("../fonts/inter-latin-600-normal.woff2") format("woff2");
+    font-family: "Jost";
+    src: url("../fonts/Jost-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2");
-    font-weight: 500;
+    font-family: "Jost";
+    src: url("../fonts/Jost-Bold.ttf") format("truetype");
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Cormorant Garamond";
-    src: url("../fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
+    font-family: "Jost";
+    src: url("../fonts/Jost-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -67,8 +67,8 @@
     --success-bg: #ecfdf5;
     --success-border: #a7f3d0;
 
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Jost", sans-serif;
+    --font-serif: "Jost", sans-serif;
 
     --radius: 2px;
 }
@@ -491,7 +491,7 @@ svg {
 }
 
 /* ==========================================================================
-   Register (tarjeta centrada + tabs)
+Register (tarjeta centrada + tabs)
    ========================================================================== */
 .register-shell {
     min-height: 100vh;
@@ -583,7 +583,7 @@ svg {
 }
 
 /* ==========================================================================
-   Dashboard layout
+    Dashboard layout
    ========================================================================== */
 .dashboard-shell {
     display: flex;

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión · SGDE</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+</head>
+
+<body>
+    <div class="auth-shell">
+        <!-- Panel de marca -->
+        <aside class="auth-brand">
+            <div class="auth-brand__top">
+                <p class="auth-brand__mark">SGDE</p>
+                <p class="auth-brand__tag">Gestión de Eventos &amp; Salones · Cartagena</p>
+            </div>
+            <div class="auth-brand__bottom">
+                <h1 class="auth-brand__headline">Cada evento merece un salón a su altura.</h1>
+                <p class="auth-brand__copy">
+                    Coordina cotizaciones, disponibilidad y clientes desde un solo lugar,
+                    con la precisión que exige la organización de eventos en Cartagena.
+                </p>
+                <div class="auth-brand__rule"></div>
+            </div>
+        </aside>
+
+
+        <main class="auth-main">
+            <div class="auth-card">
+                <p class="auth-mark--mobile">SGDE</p>
+
+                <h2 class="auth-title">Inicia sesión</h2>
+                <p class="auth-subtitle">Accede a tu panel de gestión de eventos y salones.</p>
+
+                <div id="authAlert" class="alert alert--error" role="alert"></div>
+
+                <form id="loginForm" class="auth-form" novalidate>
+                    <div class="field" id="fieldEmail">
+                        <label class="field__label" for="email">
+                            Usuario o correo electrónico <span class="field__required">*</span>
+                        </label>
+                        <div class="field__control">
+                            <input class="field__input" type="text" id="email" name="email" autocomplete="username"
+                                placeholder="nombre@empresa.com" />
+                        </div>
+                        <p class="field__error" data-error-for="email"></p>
+                    </div>
+
+                    <div class="field" id="fieldPassword">
+                        <label class="field__label" for="password">
+                            Contraseña <span class="field__required">*</span>
+                        </label>
+                        <div class="field__control">
+                            <input class="field__input field__input--with-action" type="password" id="password"
+                                name="password" autocomplete="current-password" placeholder="••••••••" />
+                            <button type="button" class="field__action" id="togglePassword">Ver</button>
+                        </div>
+                        <p class="field__error" data-error-for="password"></p>
+                    </div>
+
+                    <div class="auth-form__row">
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="rememberMe" />
+                            Recordarme
+                        </label>
+                        <button type="button" class="link" id="forgotPasswordBtn">Olvidé mi contraseña</button>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--block" id="loginSubmit">
+                        <span class="btn__spinner" aria-hidden="true"></span>
+                        <span class="btn__label">Iniciar sesión</span>
+                    </button>
+                </form>
+
+                <p class="auth-footer">
+                    ¿Aún no tienes cuenta?
+                    <a href="registrar.html" class="link">Regístrate aquí</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

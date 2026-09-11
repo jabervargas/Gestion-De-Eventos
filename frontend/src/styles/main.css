@@ -1,9 +1,7 @@
-/* ==========================================================================
-   SGDE — Estilos base
-   Sistema de Gestión de Eventos y Salones · Cartagena
-   ========================================================================== */
+/* SGDE — Estilos base
+   Sistema de Gestión de Eventos y Salones · Cartagena */
 
-/* ---- Fuentes locales (carpeta /fonts, sin dependencias externas) ---- */
+/* Fuentes locales (carpeta /fonts, sin dependencias externas) */
 @font-face {
     font-family: "Jost";
     src: url("../fonts/Jost-Regular.ttf") format("truetype");
@@ -44,7 +42,7 @@
     font-display: swap;
 }
 
-/* ---- Tokens de diseño ---- */
+/* Tokens de diseño */
 :root {
     --navy-deep: #0e2340;
     --navy-mid: #16345c;
@@ -134,9 +132,7 @@ svg {
     white-space: nowrap;
 }
 
-/* ==========================================================================
-   Botones
-   ========================================================================== */
+/* Botones */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -212,9 +208,7 @@ svg {
     }
 }
 
-/* ==========================================================================
-   Formularios
-   ========================================================================== */
+/* Formularios */
 .field {
     display: flex;
     flex-direction: column;
@@ -311,7 +305,7 @@ svg {
     accent-color: var(--navy-deep);
 }
 
-/* ---- Mensajes de alerta ---- */
+/* Mensajes de alerta */
 .alert {
     border-radius: var(--radius);
     padding: 10px 16px;
@@ -336,9 +330,7 @@ svg {
     color: var(--success);
 }
 
-/* ==========================================================================
-   Auth layout (Login)
-   ========================================================================== */
+/* Auth layout (Login) */
 .auth-shell {
     display: flex;
     min-height: 100vh;
@@ -490,9 +482,7 @@ svg {
     }
 }
 
-/* ==========================================================================
-Register (tarjeta centrada + tabs)
-   ========================================================================== */
+/* Register (tarjeta centrada + tabs) */
 .register-shell {
     min-height: 100vh;
     display: flex;
@@ -582,9 +572,7 @@ Register (tarjeta centrada + tabs)
     gap: 16px;
 }
 
-/* ==========================================================================
-    Dashboard layout
-   ========================================================================== */
+/* Dashboard layout */
 .dashboard-shell {
     display: flex;
     min-height: 100vh;

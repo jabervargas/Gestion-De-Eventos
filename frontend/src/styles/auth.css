@@ -1,9 +1,9 @@
-/* ===== Panel de marca con carrusel de fondo ===== */
+/* Panel de marca con carrusel de fondo */
 
 .auth-brand {
   position: relative;
   overflow: hidden;
-  background: #0f1f38; /* se ve un instante mientras cargan las fotos */
+  background: #0f1f38;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,7 +12,7 @@
   min-height: 100vh;
 }
 
-/* Contenedor de las dos columnas del carrusel, detrás del texto */
+/* Contenedor de las dos columnas del carrusel */
 .auth-carousel {
   position: absolute;
   inset: 0;
@@ -94,7 +94,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: #d4a24e; /* dorado de acento, igual al de tu HTML original */
+  color: #d4a24e;
 }
 
 .auth-brand__tag {
@@ -133,7 +133,7 @@
   }
 }
 
-/* ===== Layout general del login (idéntico a tu versión HTML) ===== */
+/* Layout general del login */
 
 .auth-shell {
   display: grid;

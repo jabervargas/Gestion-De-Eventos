@@ -47,7 +47,7 @@ export default function Registrar() {
 
   function handleAccountTypeChange(nextType) {
     setAccountType(nextType);
-    setErrors({}); // al cambiar de tipo, limpiamos avisos del tipo anterior
+    setErrors({}); // Al cambiar de tipo, limpiamos avisos del tipo anterior
   }
 
   function validate() {
@@ -84,7 +84,7 @@ export default function Registrar() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
-    // Aquí va la llamada real a tu API de registro (fetch/axios),
+    // Aquí va la llamada real a la API de registro (fetch/axios),
     // enviando { accountType, ...campos del tipo activo, password }.
     setTimeout(() => {
       setSubmitting(false);

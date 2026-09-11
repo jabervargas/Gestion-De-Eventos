@@ -67,8 +67,8 @@ function LoginForm({ onLoginSuccess }) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
-    // Aquí va la llamada real a tu API de autenticación (fetch/axios).
-    // Cuando la conectes, mueve el navigate() adentro del .then() de esa llamada.
+    // Aquí va la llamada real a la API de autenticación (fetch/axios).
+    // Cuando se conecte hay que mover el navigate() adentro del .then() de esa llamada.
     setTimeout(() => {
       setSubmitting(false);
       onLoginSuccess?.({ email });
@@ -163,7 +163,7 @@ export default function Login({ onLoginSuccess }) {
           <CarouselColumn images={COLUMN_B} direction="down" />
         </div>
 
-        {/* Capa oscura sobre las fotos para que el texto siga siendo legible */}
+        {/* Capa oscura sobre las fotos */}
         <div className="auth-brand__scrim" />
 
         <div className="auth-brand__content">

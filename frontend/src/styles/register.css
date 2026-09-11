@@ -38,7 +38,7 @@
   padding: 2rem;
 }
 
-/* ===== Selector de tipo de cuenta ===== */
+/* Selector de tipo de cuenta */
 
 .tabs {
   display: flex;
@@ -64,7 +64,7 @@
   color: #fff;
 }
 
-/* ===== Grilla de campos ===== */
+/* Grilla de campos */
 
 .form-grid {
   display: grid;

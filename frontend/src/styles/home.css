@@ -4,7 +4,7 @@
   min-height: 100vh;
 }
 
-/* ===== Sidebar ===== */
+/* Sidebar */
 
 .sidebar {
   background: #0f1f38;
@@ -203,7 +203,7 @@
   color: #b3261e;
 }
 
-/* ===== Contenido ===== */
+/* Contenido */
 
 .dashboard-content {
   padding: 2rem;

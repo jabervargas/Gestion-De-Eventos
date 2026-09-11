@@ -17,9 +17,9 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   function handleLoginSuccess({ email }) {
-    // Mientras no tengan el backend conectado, guardamos solo lo básico.
-    // Cuando conectes la API real, aquí deberías guardar también el rol
-    // que te devuelva el servidor (administrador / cliente / proveedor).
+    // Mientras no conectemos el backend, guardamos solo lo básico.
+    // Cuando conectemos la API real, aquí debería guardar también el rol
+    // que devuelva el servidor (administrador / cliente / proveedor).
     setUser({ name: email.split("@")[0], role: "cliente" });
   }
 
@@ -45,8 +45,8 @@ export default function App() {
         />
 
         {/* Estas rutas ya están enlazadas desde el sidebar y las quick-access
-            cards de Home; crea sus componentes y reemplaza este placeholder
-            a medida que las vayan construyendo. */}
+            cards de Home; crear sus componentes y reemplazar este placeholder
+            a medida que las vayamos construyendo. */}
         <Route
           path="/cotizaciones"
           element={

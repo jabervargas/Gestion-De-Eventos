@@ -7,9 +7,8 @@ import imperialImage from "../img/Salones/imperial.jpg";
 import jardinImage from "../img/Salones/jardin.jpg";
 import terrazaImage from "../img/Salones/terraza-del-mar.jpg";
 
-// Datos de ejemplo — reemplaza esto por la respuesta real de tu API
-// (algo como GET /api/salones) cuando el backend esté listo. La ruta de
-// "foto" debe apuntar a una imagen real del salón una vez la tengan.
+// (algo como GET /api/salones) cuando el backend esté listo se colocarán las rutas reales. La ruta de
+// "foto" debe apuntar a una imagen real del salón una vez se tenga.
 const SALONES_MOCK = [
   { id: 1, nombre: "Salón Imperial", estado: "Disponible", capacidad: 333, montajes: ["Teatro", "Banquete", "Cóctel"], foto: imperialImage },
   { id: 2, nombre: "Salón Esmeralda", estado: "Disponible", capacidad: 111, montajes: ["Teatro", "Escuela", "Banquete"], foto: esmeraldaImage },

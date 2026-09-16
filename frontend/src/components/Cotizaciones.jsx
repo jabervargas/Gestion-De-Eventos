@@ -1,8 +1,7 @@
 import { useState, useMemo } from "react";
 import "../styles/cotizaciones.css";
 
-// Datos de ejemplo — reemplaza esto por la respuesta real de tu API
-// (algo como GET /api/cotizaciones) cuando el backend esté listo.
+// (algo como GET /api/cotizaciones) cuando el backend esté listo se colocarán los datos reales por medio de la API.
 const COTIZACIONES_MOCK = [
   { id: "#COT-2041", cliente: "Mateo Gómez Villalobos", tipo: "Persona", salon: "Salón Esmeralda", fecha: "Oct 12, 2026", estado: "Aprobada", monto: 4250000 },
   { id: "#COT-2040", cliente: "Inversiones Bolívar S.A.S.", tipo: "Empresa", salon: "Terraza del Mar", fecha: "Oct 18, 2026", estado: "Pendiente", monto: 12800000 },
@@ -34,7 +33,7 @@ export default function Cotizaciones() {
   const [paginaActual, setPaginaActual] = useState(1);
 
   // Filtrado en el frontend, solo para esta demo con datos de ejemplo.
-  // Cuando conectes el backend, lo normal es mandar estos filtros como
+  // Cuando se conecte el backend, lo normal es mandar estos filtros como
   // query params (?estado=Pendiente&tipo=Empresa) y que el backend
   // devuelva ya la página filtrada, en vez de filtrar aquí.
   const cotizacionesFiltradas = useMemo(() => {

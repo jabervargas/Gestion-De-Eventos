@@ -20,8 +20,8 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   function handleLoginSuccess({ email }) {
-    // Mientras no tengan el backend conectado, guardamos solo lo básico.
-    // Cuando conectes la API real, guarda también el rol que devuelva el
+    // Mientras no se tenga el backend conectado, guardamos solo lo básico.
+    // Cuando se conecte la API real, guarda también el rol que devuelva el
     // servidor (administrador / cliente / proveedor).
     setUser({ name: email.split("@")[0], role: "cliente" });
   }

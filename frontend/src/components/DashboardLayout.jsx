@@ -112,7 +112,7 @@ export default function DashboardLayout({ user = { name: "Usuario", role: "clien
         </header>
 
         <main className="dashboard-content">
-          {/* Aquí se inserta la pantalla activa: Home, Cotizaciones, Salones, etc. */}
+          {/* Aquí se insertará la pantalla activa: Home, Cotizaciones, Salones, etc. */}
           <Outlet />
         </main>
       </div>

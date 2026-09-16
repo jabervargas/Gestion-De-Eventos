@@ -43,7 +43,7 @@
   background: #fff;
 }
 
-/* ===== Grid de tarjetas ===== */
+/* Grid de tarjetas */
 
 .salones-grid {
   display: grid;
@@ -62,7 +62,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #e6e2d8; /* se ve mientras carga la foto real */
+  background: #e6e2d8;
 }
 
 .salon-card__photo img {

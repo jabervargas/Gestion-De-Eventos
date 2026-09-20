@@ -13,3 +13,6 @@ frontend/dist/
 # General
 .DS_Store
 *.log
+
+# Raíz (Docker)
+.env

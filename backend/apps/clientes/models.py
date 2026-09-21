@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from apps.sitios.models import Ciudad
 
@@ -20,8 +21,13 @@ class Cliente(models.Model):
         (JURIDICA, "Jurídica"),
     ]
 
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name="cliente", null=True, blank=True
+    )
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
     nombre = models.CharField(max_length=150)
+    identificacion = models.CharField(max_length=30, unique=True, null=True, blank=True)
     empresa = models.ForeignKey(
         Empresa, on_delete=models.PROTECT, related_name="clientes",
         null=True, blank=True

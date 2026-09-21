@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import image0 from "../img/images(0).jpg";
@@ -12,25 +13,10 @@ import image7 from "../img/images(7).jpg";
 import image8 from "../img/images(8).jpg";
 import image9 from "../img/images(9).jpg";
 
-
-const COLUMN_A = [
-  image0,
-  image1,
-  image2,
-  image3,
-  image4,
-];
-
-const COLUMN_B = [
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-];
+const COLUMN_A = [image0, image1, image2, image3, image4];
+const COLUMN_B = [image5, image6, image7, image8, image9];
 
 function CarouselColumn({ images, direction = "up" }) {
-  // Duplicamos el arreglo para que el loop del carrusel sea infinito y sin cortes.
   const loopedImages = [...images, ...images];
 
   return (
@@ -53,7 +39,7 @@ function LoginForm({ onLoginSuccess }) {
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
     const form = new FormData(event.target);
     const email = form.get("email")?.toString().trim();
@@ -67,13 +53,21 @@ function LoginForm({ onLoginSuccess }) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
-    // Aquí va la llamada real a la API de autenticación (fetch/axios).
-    // Cuando se conecte hay que mover el navigate() adentro del .then() de esa llamada.
+<<<<<<< HEAD
     setTimeout(() => {
       setSubmitting(false);
       onLoginSuccess?.({ email });
+=======
+    try {
+      await login(email, password);
+      await onLoginSuccess();
+>>>>>>> 916cf2ad736224fa7e134bd03652202c1d7723dd
       navigate("/inicio");
-    }, 800);
+    } catch (err) {
+      setErrors({ password: "Usuario o contraseña incorrectos." });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -152,7 +146,7 @@ function LoginForm({ onLoginSuccess }) {
       </div>
     </main>
   );
-}
+} // <--- FALTABA CERRAR LoginForm AQUÍ
 
 export default function Login({ onLoginSuccess }) {
   return (
@@ -163,7 +157,6 @@ export default function Login({ onLoginSuccess }) {
           <CarouselColumn images={COLUMN_B} direction="down" />
         </div>
 
-        {/* Capa oscura sobre las fotos */}
         <div className="auth-brand__scrim" />
 
         <div className="auth-brand__content">

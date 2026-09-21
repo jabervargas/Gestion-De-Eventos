@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { login } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/auth.css";
 import image0 from "../img/images(0).jpg";
@@ -53,7 +54,7 @@ function LoginForm({ onLoginSuccess }) {
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
     const form = new FormData(event.target);
     const email = form.get("email")?.toString().trim();
@@ -67,13 +68,15 @@ function LoginForm({ onLoginSuccess }) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
-    // Aquí va la llamada real a la API de autenticación (fetch/axios).
-    // Cuando se conecte hay que mover el navigate() adentro del .then() de esa llamada.
-    setTimeout(() => {
-      setSubmitting(false);
-      onLoginSuccess?.({ email });
+    try {
+      await login(email, password);
+      await onLoginSuccess();
       navigate("/inicio");
-    }, 800);
+    } catch (err) {
+      setErrors({ password: "Usuario o contraseña incorrectos." });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (

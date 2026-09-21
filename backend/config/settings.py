@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "corsheaders",
     "apps.usuarios",
-    "apps.hoteles",
+    "apps.sitios",
     "apps.clientes",
     "apps.salones",
     "apps.disponibilidad",
@@ -89,6 +89,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+AUTH_USER_MODEL = "usuarios.Usuario"
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases

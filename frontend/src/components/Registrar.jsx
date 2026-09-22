@@ -7,10 +7,10 @@ const ACCOUNT_TYPES = {
   natural: {
     label: "Persona Natural",
     fields: [
-      { name: "fullName", label: "Nombre completo", type: "text", placeholder: "Ana María Restrepo", full: true },
+      { name: "fullName", label: "Nombre completo", type: "text", placeholder: "Maria Bustamante", full: true },
       { name: "documentId", label: "Cédula / Documento", type: "text", placeholder: "1234567890" },
       { name: "phoneNatural", label: "Teléfono", type: "tel", placeholder: "+57 300 000 0000" },
-      { name: "emailNatural", label: "Correo electrónico", type: "email", placeholder: "ana@correo.com" },
+      { name: "emailNatural", label: "Correo electrónico", type: "email", placeholder: "maria@correo.com" },
     ],
   },
   empresa: {

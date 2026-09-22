@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql 
     ports:
       - "5432:5432"
 
@@ -28,6 +28,17 @@ services:
       SECRET_KEY: ${SECRET_KEY}
     depends_on:
       - db
+
+frontend:
+    build:
+      context: ./frontend # O la ruta exacta a tu carpeta frontend
+      args:
+        VITE_API_URL: http://localhost:8000
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:

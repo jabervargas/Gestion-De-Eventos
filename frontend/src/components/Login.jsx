@@ -13,25 +13,10 @@ import image7 from "../img/images(7).jpg";
 import image8 from "../img/images(8).jpg";
 import image9 from "../img/images(9).jpg";
 
-
-const COLUMN_A = [
-  image0,
-  image1,
-  image2,
-  image3,
-  image4,
-];
-
-const COLUMN_B = [
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-];
+const COLUMN_A = [image0, image1, image2, image3, image4];
+const COLUMN_B = [image5, image6, image7, image8, image9];
 
 function CarouselColumn({ images, direction = "up" }) {
-  // Duplicamos el arreglo para que el loop del carrusel sea infinito y sin cortes.
   const loopedImages = [...images, ...images];
 
   return (
@@ -68,9 +53,15 @@ async function handleSubmit(event) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
+
+    setTimeout(() => {
+      setSubmitting(false);
+      onLoginSuccess?.({ email });
+
     try {
       await login(email, password);
       await onLoginSuccess();
+
       navigate("/inicio");
     } catch (err) {
       setErrors({ password: "Usuario o contraseña incorrectos." });
@@ -155,7 +146,7 @@ async function handleSubmit(event) {
       </div>
     </main>
   );
-}
+} // <--- FALTABA CERRAR LoginForm AQUÍ
 
 export default function Login({ onLoginSuccess }) {
   return (
@@ -166,7 +157,6 @@ export default function Login({ onLoginSuccess }) {
           <CarouselColumn images={COLUMN_B} direction="down" />
         </div>
 
-        {/* Capa oscura sobre las fotos */}
         <div className="auth-brand__scrim" />
 
         <div className="auth-brand__content">

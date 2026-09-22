@@ -4,6 +4,7 @@ export async function login(username, password) {
   const data = await apiFetch("/token/", {
     method: "POST",
     body: JSON.stringify({ username, password }),
+    skipAuth: true,
   });
 
   localStorage.setItem("access_token", data.access);
@@ -39,5 +40,6 @@ export async function registrarCliente({ tipo, nombre, identificacion, telefono,
   return apiFetch("/registro/", {
     method: "POST",
     body: JSON.stringify(body),
+    skipAuth: true,
   });
 }

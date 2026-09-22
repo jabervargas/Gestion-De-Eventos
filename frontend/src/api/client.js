@@ -1,7 +1,8 @@
 const API_URL = "http://127.0.0.1:8000/api";
 
 export async function apiFetch(endpoint, options = {}) {
-  const token = localStorage.getItem("access_token");
+  const skipAuth = options.skipAuth ?? false;
+  const token = !skipAuth ? localStorage.getItem("access_token") : null;
 
   const headers = {
     "Content-Type": "application/json",

@@ -53,15 +53,15 @@ async function handleSubmit(event) {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
-<<<<<<< HEAD
+
     setTimeout(() => {
       setSubmitting(false);
       onLoginSuccess?.({ email });
-=======
+
     try {
       await login(email, password);
       await onLoginSuccess();
->>>>>>> 916cf2ad736224fa7e134bd03652202c1d7723dd
+
       navigate("/inicio");
     } catch (err) {
       setErrors({ password: "Usuario o contraseña incorrectos." });

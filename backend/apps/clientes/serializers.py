@@ -53,3 +53,12 @@ class RegistroPublicoSerializer(serializers.Serializer):
         )
 
         return cliente
+
+    def to_representation(self, instance):
+        return {
+            "id": instance.id,
+            "nombre": instance.nombre,
+            "tipo": instance.tipo,
+            "email": instance.usuario.email,
+            "mensaje": "Cuenta creada correctamente. Ya puedes iniciar sesión.",
+        }

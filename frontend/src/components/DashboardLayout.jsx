@@ -20,7 +20,10 @@ function getInitials(name) {
     .join("");
 }
 
-export default function DashboardLayout({ user = { name: "Usuario", role: "cliente" }, onLogout }) {
+export default function DashboardLayout({
+  user = { name: "Usuario", email: "", role: "cliente" },
+  onLogout,
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const location = useLocation();
@@ -71,7 +74,7 @@ export default function DashboardLayout({ user = { name: "Usuario", role: "clien
         <header className="navbar">
           <h1 className="navbar__title">{pageTitle}</h1>
 
-          <div className="navbar__profile" ref={menuRef}>
+          <div className={`navbar__profile${menuOpen ? " is-open" : ""}`} ref={menuRef}>
             <button
               type="button"
               className="navbar__profile-trigger"
@@ -96,13 +99,14 @@ export default function DashboardLayout({ user = { name: "Usuario", role: "clien
 
             {menuOpen && (
               <div className="navbar__menu">
-                <button type="button" className="navbar__menu-item">
-                  Mi perfil
-                </button>
+                <p className="navbar__menu-email">{user.email}</p>
                 <button
                   type="button"
                   className="navbar__menu-item navbar__menu-item--danger"
-                  onClick={onLogout}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onLogout();
+                  }}
                 >
                   Cerrar sesión
                 </button>

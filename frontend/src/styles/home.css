@@ -183,6 +183,15 @@
   z-index: 10;
 }
 
+.navbar__menu-email {
+  margin: 0;
+  padding: 0.75rem 1rem 0.6rem;
+  border-bottom: 1px solid #e6e2d8;
+  color: #6b7280;
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
 .navbar__menu-item {
   display: block;
   width: 100%;

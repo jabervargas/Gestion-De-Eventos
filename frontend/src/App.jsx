@@ -23,7 +23,7 @@ export default function App() {
     // Mientras no se tenga el backend conectado, guardamos solo lo básico.
     // Cuando se conecte la API real, guarda también el rol que devuelva el
     // servidor (administrador / cliente / proveedor).
-    setUser({ name: email.split("@")[0], role: "cliente" });
+    setUser({ name: email.split("@")[0], email, role: "cliente" });
   }
 
   function handleLogout() {

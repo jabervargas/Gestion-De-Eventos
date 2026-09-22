@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import NuevoSalonModal from "./NuevoSalonModal";
 import "../styles/salones.css";
 import auditorioImage from "../img/Salones/auditorio.jpg";
 import colonialImage from "../img/Salones/colonial.jpg";
@@ -30,21 +31,26 @@ function cumpleCapacidad(capacidad, filtro) {
 }
 
 export default function Salones() {
+  const [salones, setSalones] = useState(SALONES_MOCK);
+  const [modalAbierto, setModalAbierto] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const [filtroCapacidad, setFiltroCapacidad] = useState("Cualquiera");
   const [filtroMontaje, setFiltroMontaje] = useState("Cualquiera");
 
-  // Igual que en Cotizaciones: este filtrado es solo para la demo.
   // Con el backend conectado, lo ideal es mandar estos filtros como
   // query params y dejar que la búsqueda/paginación la haga el servidor.
   const salonesFiltrados = useMemo(() => {
-    return SALONES_MOCK.filter((s) => {
+    return salones.filter((s) => {
       const coincideBusqueda = s.nombre.toLowerCase().includes(busqueda.toLowerCase());
       const coincideCapacidad = cumpleCapacidad(s.capacidad, filtroCapacidad);
       const coincideMontaje = filtroMontaje === "Cualquiera" || s.montajes.includes(filtroMontaje);
       return coincideBusqueda && coincideCapacidad && coincideMontaje;
     });
-  }, [busqueda, filtroCapacidad, filtroMontaje]);
+  }, [salones, busqueda, filtroCapacidad, filtroMontaje]);
+
+  function handleCrearSalon(nuevoSalon) {
+    setSalones((prev) => [nuevoSalon, ...prev]);
+  }
 
   return (
     <div className="salones">
@@ -73,7 +79,9 @@ export default function Salones() {
           </label>
         </div>
 
-        <button type="button" className="btn btn--primary">+ Nuevo salón</button>
+        <button type="button" className="btn btn--primary" onClick={() => setModalAbierto(true)}>
+          + Nuevo salón
+        </button>
       </div>
 
       <div className="salones-grid">
@@ -105,6 +113,13 @@ export default function Salones() {
           <p className="salones-empty">No hay salones que coincidan con la búsqueda.</p>
         )}
       </div>
+
+      {modalAbierto && (
+        <NuevoSalonModal
+          onClose={() => setModalAbierto(false)}
+          onCreate={handleCrearSalon}
+        />
+      )}
     </div>
   );
 }

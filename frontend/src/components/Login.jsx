@@ -40,35 +40,30 @@ function LoginForm({ onLoginSuccess }) {
   const navigate = useNavigate();
 
 async function handleSubmit(event) {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    const email = form.get("email")?.toString().trim();
-    const password = form.get("password")?.toString();
+  event.preventDefault();
+  const form = new FormData(event.target);
+  const email = form.get("email")?.toString().trim();
+  const password = form.get("password")?.toString();
 
-    const nextErrors = {};
-    if (!email) nextErrors.email = "Ingresa tu usuario o correo.";
-    if (!password) nextErrors.password = "Ingresa tu contraseña.";
-    setErrors(nextErrors);
+  const nextErrors = {};
+  if (!email) nextErrors.email = "Ingresa tu usuario o correo.";
+  if (!password) nextErrors.password = "Ingresa tu contraseña.";
+  setErrors(nextErrors);
 
-    if (Object.keys(nextErrors).length > 0) return;
+  if (Object.keys(nextErrors).length > 0) return;
 
-    setSubmitting(true);
+  setSubmitting(true);
 
-    setTimeout(() => {
-      setSubmitting(false);
-      onLoginSuccess?.({ email });
-
-    try {
-      await login(email, password);
-      await onLoginSuccess();
-
-      navigate("/inicio");
-    } catch (err) {
-      setErrors({ password: "Usuario o contraseña incorrectos." });
-    } finally {
-      setSubmitting(false);
-    }
+  try {
+    await login(email, password);
+    await onLoginSuccess?.({ email });
+    navigate("/inicio");
+  } catch (err) {
+    setErrors({ password: "Usuario o contraseña incorrectos." });
+  } finally {
+    setSubmitting(false);
   }
+}
 
   return (
     <main className="auth-main">

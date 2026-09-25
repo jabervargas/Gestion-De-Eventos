@@ -21,6 +21,8 @@ from apps.usuarios.views import RegistrarUsuarioView, MeView
 from apps.clientes.views import RegistroPublicoView
 from apps.sitios.views import SitioListCreateView
 
+from apps.clientes.views import RegistroPublicoView, ClienteAdminListCreateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -28,5 +30,7 @@ urlpatterns = [
     path('api/registro/', RegistroPublicoView.as_view(), name='registro_publico'),
     path('api/usuarios/registro/', RegistrarUsuarioView.as_view(), name='usuario_registro'),
     path('api/usuarios/me/', MeView.as_view(), name='usuario_me'),
-    path('api/sitios/', SitioListCreateView.as_view(), name='sitio_list_create'),
+     path('api/sitios/', SitioListCreateView.as_view(), name='sitio_list_create'),
+    path('api/clientes/', ClienteAdminListCreateView.as_view(), name='cliente_admin_list_create'),
+
 ]

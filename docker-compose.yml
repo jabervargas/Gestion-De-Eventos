@@ -3,11 +3,11 @@ services:
     image: postgres:18
     restart: unless-stopped
     environment:
-      POSTGRES_DB: sgde_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME:-sgde_db}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-andre1234}
     volumes:
-      - postgres_data:/var/lib/postgresql 
+      - postgres_data:/var/lib/postgresql
     ports:
       - "5432:5432"
 
@@ -29,11 +29,11 @@ services:
     depends_on:
       - db
 
-frontend:
+  frontend:
     build:
       context: ./frontend # O la ruta exacta a tu carpeta frontend
       args:
-        VITE_API_URL: http://localhost:8000
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
     restart: unless-stopped
     ports:
       - "80:80"

@@ -98,7 +98,7 @@ export default function Registrar() {
     setSubmitting(true);
     try {
       await registrarCliente({
-        tipo: accountType,
+        tipo: accountType === "empresa" ? "juridica" : "natural",
         nombre: accountType === "natural" ? form.fullName : form.contactName,
         identificacion: accountType === "natural" ? form.documentId : form.taxId,
         telefono: accountType === "natural" ? form.phoneNatural : form.phoneEmpresa,

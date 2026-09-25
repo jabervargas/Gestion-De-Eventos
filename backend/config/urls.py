@@ -19,6 +19,7 @@ from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from apps.usuarios.views import RegistrarUsuarioView, MeView
 from apps.clientes.views import RegistroPublicoView
+from apps.sitios.views import SitioListCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('api/registro/', RegistroPublicoView.as_view(), name='registro_publico'),
     path('api/usuarios/registro/', RegistrarUsuarioView.as_view(), name='usuario_registro'),
     path('api/usuarios/me/', MeView.as_view(), name='usuario_me'),
+    path('api/sitios/', SitioListCreateView.as_view(), name='sitio_list_create'),
 ]

@@ -20,6 +20,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from apps.usuarios.views import RegistrarUsuarioView, MeView
 from apps.clientes.views import RegistroPublicoView
 from apps.sitios.views import SitioListCreateView
+from apps.salones.views import SalonListCreateView
 
 from apps.clientes.views import RegistroPublicoView, ClienteAdminListCreateView
 
@@ -32,5 +33,6 @@ urlpatterns = [
     path('api/usuarios/me/', MeView.as_view(), name='usuario_me'),
      path('api/sitios/', SitioListCreateView.as_view(), name='sitio_list_create'),
     path('api/clientes/', ClienteAdminListCreateView.as_view(), name='cliente_admin_list_create'),
+    path('api/salones/', SalonListCreateView.as_view(), name='salon_list_create'),
 
 ]

@@ -4,6 +4,22 @@ from apps.usuarios.models import Usuario, Rol
 from apps.sitios.models import Ciudad
 from .models import Cliente, Empresa
 
+class ClienteAdminSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
+        fields = ["id", "tipo", "nombre", "identificacion", "empresa",
+                  "forma_pago", "observaciones_internas", "creado_en"]
+        read_only_fields = ["creado_en"]
+
+    def validate(self, data):
+        tipo = data.get("tipo")
+        empresa = data.get("empresa")
+        if tipo == Cliente.JURIDICA and not empresa:
+            raise serializers.ValidationError(
+                {"empresa": "Debes asociar una empresa existente si el cliente es jurídico."}
+            )
+        return data
+
 
 class RegistroPublicoSerializer(serializers.Serializer):
     tipo = serializers.ChoiceField(choices=Cliente.TIPO_CHOICES)
